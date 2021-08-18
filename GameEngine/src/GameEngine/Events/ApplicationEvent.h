@@ -2,6 +2,7 @@
 
 #include "Event.h"
 
+
 namespace NE {
 
 	  class WindowResizeEvent : public Event

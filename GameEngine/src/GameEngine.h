@@ -6,6 +6,7 @@
 #include "GameEngine/Application.h"
 #include "GameEngine/Log.h"
 #include "GameEngine/Events/Event.h"
+#include "GameEngine/Layer.h"
 
 // Entry Point
 

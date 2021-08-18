@@ -2,6 +2,7 @@ workspace "GameEngine"
 	architecture "x64"
 	startproject "SandBox"
 
+
 	configurations
 	{
 		"Debug",
@@ -18,8 +19,10 @@ include "GameEngine/vendor/GLFW"
 
 project "GameEngine"
 	location "GameEngine"
-	kind "SharedLib"
+	kind "StaticLib"
 	language "C++"
+	cppdialect "C++17"
+	staticruntime "on"
 	
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
@@ -46,9 +49,13 @@ project "GameEngine"
 		"opengl32.lib"
 	}
 
+	defines
+	{
+		"_CRT_SECURE_NO_WARNINGS"
+	}
+
 	filter "system:windows"
-		cppdialect "C++17"
-		staticruntime "On"
+
 		systemversion "latest"
 
 		defines
@@ -65,20 +72,28 @@ project "GameEngine"
 
 	filter "configurations:Debug"
 		defines "NE_DEBUG"
+		runtime "Debug"
+		buildoptions "/MDd"
 		symbols "On"
 
 	filter "configurations:Release"
 		defines "NE_RELEASE"
+		runtime "Release"
+		buildoptions "/MD"
 		optimize "On"
 
 	filter "configurations:Dist"
 		defines "NE_DIST"
+		runtime "Release"
+		buildoptions "/MD"
 		optimize "On"
 
 project "SandBox"
 	location "SandBox"
 	kind "ConsoleApp"
 	language "C++"
+	cppdialect "C++17"
+	staticruntime "on"
 	
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
@@ -101,8 +116,7 @@ project "SandBox"
 	}
 
 	filter "system:windows"
-		cppdialect "C++17"
-		staticruntime "On"
+
 		systemversion "latest"
 
 		defines
@@ -112,12 +126,18 @@ project "SandBox"
 
 	filter "configurations:Debug"
 		defines "NE_DEBUG"
+		runtime "Debug"
+		buildoptions "/MDd"
 		symbols "On"
 
 	filter "configurations:Release"
 		defines "NE_RELEASE"
+		runtime "Release"
+		buildoptions "/MD"
 		optimize "On"
 
 	filter "configurations:Dist"
 		defines "NE_DIST"
+		runtime "Release"
+		buildoptions "/MD"
 		optimize "On"

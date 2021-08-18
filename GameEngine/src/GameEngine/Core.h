@@ -1,11 +1,15 @@
 #pragma once
 
 #ifdef NE_PLATFORM_WINDOWS
+#if NE_DYNAMIC_LINK
 	  #ifdef NE_BUILD_DLL
 			#define NE_API __declspec(dllexport)
 	  #else
 			#define NE_API __declspec(dllimport)
 	  #endif
+#else
+#define NE_API
+#endif
 #else
 	  #error Application only support Windows
 #endif
