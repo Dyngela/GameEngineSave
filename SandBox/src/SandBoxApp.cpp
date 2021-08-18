@@ -1,7 +1,5 @@
 #include <GameEngine.h>
 
-
-
 class ExempleLayer : public NE::Layer
 {
 public:

@@ -2,7 +2,7 @@
 #include "Application.h"
 #include "Log.h"
 
-#include <GLFW/glfw3.h>
+#include <glad/glad.h>
 
 namespace NE {
 
@@ -10,6 +10,9 @@ namespace NE {
 	  {
 			m_Window = std::unique_ptr<Window>(Window::Create());
 			m_Window->SetEventCallback(std::bind(&Application::OnEvent, this, std::placeholders::_1));
+
+			unsigned int id;
+			glGenVertexArrays(1, &id);
 	  }
 
 	  Application::~Application()
