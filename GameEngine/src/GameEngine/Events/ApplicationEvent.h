@@ -33,7 +33,7 @@ namespace NE {
 			WindowCloseEvent() = default;
 
 			EVENT_CLASS_TYPE(WindowClose)
-				  EVENT_CLASS_CATEGORY(EventCategoryApplication)
+			EVENT_CLASS_CATEGORY(EventCategoryApplication)
 	  };
 
 	  class AppTickEvent : public Event

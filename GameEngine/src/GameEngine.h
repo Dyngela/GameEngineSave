@@ -9,6 +9,11 @@
 #include "GameEngine/Layer.h"
 #include "GameEngine//imgui/ImGuiLayer.h"
 
+#include "GameEngine/Input.h"
+#include "GameEngine/KeyCodes.h"
+#include "GameEngine/MouseButton.h"
+
+
 // Entry Point
 
 #include "GameEngine/EntryPoint.h"
